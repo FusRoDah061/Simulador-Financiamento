@@ -1,11 +1,72 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorForeground">@color/colorForeground</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="radioButtonStyle">@style/RadioButtonStyle</item>
+        <item name="buttonStyle">@style/ButtonStyle</item>
+    </style>
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="colorAccent">@color/colorAccent1</item>
+        <item name="android:colorAccent">@color/colorAccent1</item>
+        <item name="android:textColor">@color/colorAccent1</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="EditTextStyle" parent="android:Widget.EditText">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:textColorHint">@color/colorAccent2</item>
+        <item name="android:textColor">@color/colorAccent3</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="RadioButtonStyle" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/colorAccent1</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CompositeRadioButtonStyle" parent="RadioButtonStyle">
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:textColor">@color/radio_flat_text_selector</item>
+    </style>
+
+    <style name="CompositeRadioButtonStyleLeft" parent="CompositeRadioButtonStyle">
+        <item name="android:background">@drawable/radio_flat_selector_left</item>
+    </style>
+
+    <style name="CompositeRadioButtonStyleRight" parent="CompositeRadioButtonStyle">
+        <item name="android:background">@drawable/radio_flat_selector_right</item>
+    </style>
+
+    <style name="ButtonStyle" parent="android:Widget.Button">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorAccent1</item>
+        <item name="android:background">@drawable/button_solid_background</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="AppBrand">
+        <item name="android:textColor">@color/colorAccent3</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/simple_tfb</item>
+    </style>
+
+    <style name="AppBrand.Large">
+        <item name="android:textSize">45sp</item>
     </style>
 
 </resources>
