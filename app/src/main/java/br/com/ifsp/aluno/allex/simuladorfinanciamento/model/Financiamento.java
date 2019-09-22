@@ -6,7 +6,9 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public abstract class Financiamento {
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.Constants;
+
+public class Financiamento implements Parcelable {
 
     private Double valor;
     private Double valorFinal;
@@ -15,17 +17,33 @@ public abstract class Financiamento {
     private Double taxaJuros;
     private Double valorParcelas;
     private Double rendaMensal;
+    private boolean isNovo;
 
     public Financiamento(){}
 
-    public Financiamento(Double valor, Double entrada, int qtdParcelas, double rendaMensal) {
+    public Financiamento(Double valor, Double entrada, int qtdParcelas, double rendaMensal, boolean isNovo) {
         this.valor = valor;
         this.valorFinal = valor;
         this.entrada = entrada;
         this.qtdParcelas = qtdParcelas;
         this.rendaMensal = rendaMensal;
+        this.isNovo = isNovo;
         this.taxaJuros = 0.0;
         this.valorParcelas = 0.0;
+    }
+
+    private Financiamento(Parcel in) {
+        super();
+        Bundle content = in.readBundle();
+
+        this.setValor(content.getDouble(Constants.PARCELABLE_VALOR));
+        this.setValorFinal(content.getDouble(Constants.PARCELABLE_VALOR_FINAL));
+        this.setEntrada(content.getDouble(Constants.PARCELABLE_ENTRADA));
+        this.setQtdParcelas(content.getInt(Constants.PARCELABLE_QTD_PARCELAS));
+        this.setTaxaJuros(content.getDouble(Constants.PARCELABLE_TAXA_JUROS));
+        this.setValorParcelas(content.getDouble(Constants.PARCELABLE_VALOR_PARCELAS));
+        this.setRendaMensal(content.getDouble(Constants.PARCELABLE_RENDA_MENSAL));
+        this.setNovo(content.getBoolean(Constants.PARCELABLE_IS_NOVO));
     }
 
     public Double getValor() {
@@ -84,4 +102,50 @@ public abstract class Financiamento {
         this.valorFinal = valorFinal;
     }
 
+    public void setValorParcelas(Double valorParcelas) {
+        this.valorParcelas = valorParcelas;
+    }
+
+    public void setRendaMensal(Double rendaMensal) {
+        this.rendaMensal = rendaMensal;
+    }
+
+    public boolean isNovo() {
+        return isNovo;
+    }
+
+    public void setNovo(boolean novo) {
+        isNovo = novo;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        Bundle content = new Bundle(8);
+
+        content.putDouble(Constants.PARCELABLE_VALOR, this.getValor());
+        content.putDouble(Constants.PARCELABLE_VALOR_FINAL, this.getValorFinal());
+        content.putDouble(Constants.PARCELABLE_ENTRADA, this.getEntrada());
+        content.putInt(Constants.PARCELABLE_QTD_PARCELAS, this.getQtdParcelas());
+        content.putDouble(Constants.PARCELABLE_TAXA_JUROS, this.getTaxaJuros());
+        content.putDouble(Constants.PARCELABLE_VALOR_PARCELAS, this.getValorParcelas());
+        content.putDouble(Constants.PARCELABLE_RENDA_MENSAL, this.getRendaMensal());
+        content.putBoolean(Constants.PARCELABLE_IS_NOVO, this.isNovo());
+
+        out.writeBundle(content);
+    }
+
+    public static final Parcelable.Creator<Financiamento> CREATOR = new Parcelable.Creator<Financiamento>() {
+        public Financiamento createFromParcel(Parcel in) {
+            return new Financiamento(in);
+        }
+
+        public Financiamento[] newArray(int size) {
+            return new Financiamento[size];
+        }
+    };
 }

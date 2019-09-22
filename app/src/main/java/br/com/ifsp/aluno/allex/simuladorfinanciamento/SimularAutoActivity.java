@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.business.CalculadoraAutomovel;
-import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.FinanciamentoAutomovel;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText;
 
 public class SimularAutoActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
@@ -68,7 +68,7 @@ public class SimularAutoActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void calcularFinanciamento() {
-        FinanciamentoAutomovel financiamento = new FinanciamentoAutomovel(
+        Financiamento financiamento = new Financiamento(
                 letValorAutomovel.getValue(),
                 letValorEntrada.getValue(),
                 letQtdParcelas.getValue().intValue(),
@@ -79,7 +79,6 @@ public class SimularAutoActivity extends AppCompatActivity implements View.OnCli
         if(calculadoraAutomovel.calculaFinanciamento(financiamento)) {
             Intent intent = new Intent(SimularAutoActivity.this, ResumoActivity.class);
             intent.putExtra(Constants.EXTRA_FINANCIAMENTO, financiamento);
-            intent.putExtra(Constants.EXTRA_TIPO_FINANCIAMENTO, Constants.TIPO_FINANCIAMENTO_AUTO);
             startActivity(intent);
             finish();
         }

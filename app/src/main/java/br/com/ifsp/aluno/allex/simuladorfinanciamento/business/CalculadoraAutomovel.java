@@ -1,12 +1,12 @@
 package br.com.ifsp.aluno.allex.simuladorfinanciamento.business;
 
-import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.FinanciamentoAutomovel;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 
 public class CalculadoraAutomovel {
 
     private String mensagemErro;
 
-    public boolean calculaFinanciamento(FinanciamentoAutomovel financiamento) {
+    public boolean calculaFinanciamento(Financiamento financiamento) {
 
         if(financiamento.getValor() <= 0) {
             mensagemErro = "Informe o valor do automóvel";
