@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResumoActivity"></activity>
+        <activity android:name=".SimularImovelActivity"></activity>
+        <activity android:name=".ResumoActivity" />
         <activity android:name=".SimularAutoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
