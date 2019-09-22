@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/round_background_pink">
+
+    <TextView
+        android:id="@+id/lnetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorAccent2"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingRight="14dp"
+        android:paddingEnd="14dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        tools:text="Label"/>
+
+    <EditText
+        android:id="@+id/lnetEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:background="@drawable/right_round_background_white"/>
+
+</LinearLayout>

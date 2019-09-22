@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    tools:context=".SimularAutoActivity">
+
+    <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.BrandTextView
+        android:id="@+id/textView"
+        style="@style/AppBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNomeUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Olá, Fulano"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintHeight_default="spread"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuario">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_background_white"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:padding="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:srcCompat="@drawable/car" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Valor do automóvel:" />
+
+            <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText
+                android:id="@+id/letValorAutomovel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:label="R$" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="Valor da entrada:" />
+
+            <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText
+                android:id="@+id/letValorEntrada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:label="R$" />
+
+            <TextView
+                android:id="@+id/tvHintEntradaMinima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="1dp"
+                android:text="Valor mínimo de 5% do valor do automóvel"
+                style="@style/HintTextViewStyle"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="Quantidade de parcelas:" />
+
+            <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText
+                android:id="@+id/letQtdParcelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:label="x" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="Renda líquida mensal:" />
+
+            <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText
+                android:id="@+id/letRendaMensal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:label="R$" />
+
+            <RadioGroup
+                android:id="@+id/rgpEstadoCarro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/rbtNovo"
+                    style="@style/CompositeRadioButtonStyleLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Novo" />
+
+                <RadioButton
+                    android:id="@+id/rbtUsado"
+                    style="@style/CompositeRadioButtonStyleRight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Usado" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnCalcular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="Calcular" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
