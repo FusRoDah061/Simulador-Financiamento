@@ -2,9 +2,11 @@ package br.com.ifsp.aluno.allex.simuladorfinanciamento.business;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 
-public class CalculadoraAutomovel {
+public final class CalculadoraAutomovel extends CalculadoraFinanciamento {
 
-    private String mensagemErro;
+    public CalculadoraAutomovel() {
+        super(.05);
+    }
 
     public boolean calculaFinanciamento(Financiamento financiamento) {
 
@@ -32,7 +34,7 @@ public class CalculadoraAutomovel {
         financiamento.setValorFinal(financiamento.getValor() - financiamento.getEntrada());
 
         if(financiamento.isNovo())
-            financiamento.setValorFinal(ajustaValorNovo(financiamento.getValorFinal()));
+            financiamento.setValorFinal(aplicaTaxasAdicionaisValorNovo(financiamento.getValorFinal()));
 
         double taxaJuros = determinaTaxaJuros(financiamento.getRendaMensal());
 
@@ -50,16 +52,9 @@ public class CalculadoraAutomovel {
         return true;
     }
 
-    private double ajustaValorJuros(double valor, double taxaJuros, int qtdParcelas) {
-        return ((valor / qtdParcelas) + (valor * taxaJuros)) * qtdParcelas;
-    }
-
-    public Double ajustaValorNovo(Double valor) {
+    @Override
+    public Double aplicaTaxasAdicionaisValorNovo(Double valor) {
         return valor + calculaTaxaEmplacamento(valor) + calculaIPVA(valor);
-    }
-
-    public Double calculaEntradaMinima(Double valor) {
-        return valor * .05;
     }
 
     private Double calculaTaxaEmplacamento(Double valor) {
@@ -70,21 +65,13 @@ public class CalculadoraAutomovel {
         return valor * .04;
     }
 
-    private Double determinaTaxaJuros(Double renda) {
+    public Double determinaTaxaJuros(Double renda) {
         if(renda <= 3500)
             return .06;
         else if(renda <= 5000)
             return .05;
         else
             return .04;
-    }
-
-    private boolean isValorParcelaPermitido(Double valorParcela, Double renda) {
-        return valorParcela <= (renda * .3);
-    }
-
-    public String getUltimoErro(){
-        return mensagemErro;
     }
 
 }

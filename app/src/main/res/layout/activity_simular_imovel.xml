@@ -69,10 +69,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="Valor do automóvel:" />
+                android:text="Valor do imóvel:" />
 
             <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText
-                android:id="@+id/letValorAutomovel"
+                android:id="@+id/letValorImovel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

@@ -2,9 +2,11 @@ package br.com.ifsp.aluno.allex.simuladorfinanciamento.business;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 
-public class CalculadoraImovel {
+public final class CalculadoraImovel extends CalculadoraFinanciamento {
 
-    private String mensagemErro;
+    public CalculadoraImovel() {
+        super(.2);
+    }
 
     public boolean calculaFinanciamento(Financiamento financiamento) {
 
@@ -32,9 +34,9 @@ public class CalculadoraImovel {
         financiamento.setValorFinal(financiamento.getValor() - financiamento.getEntrada());
 
         if(financiamento.isNovo())
-            financiamento.setValorFinal(ajustaValorNovo(financiamento.getValorFinal()));
+            financiamento.setValorFinal(aplicaTaxasAdicionaisValorNovo(financiamento.getValorFinal()));
         else
-            financiamento.setValorFinal(ajustaValorUsado(financiamento.getValorFinal()));
+            financiamento.setValorFinal(aplicaTaxasAdicionaisValorUsado(financiamento.getValorFinal()));
 
         double taxaJuros = determinaTaxaJuros(financiamento.getRendaMensal());
 
@@ -52,20 +54,14 @@ public class CalculadoraImovel {
         return true;
     }
 
-    private double ajustaValorJuros(double valor, double taxaJuros, int qtdParcelas) {
-        return ((valor / qtdParcelas) + (valor * taxaJuros)) * qtdParcelas;
-    }
-
-    public Double ajustaValorNovo(Double valor) {
+    @Override
+    public Double aplicaTaxasAdicionaisValorNovo(Double valor) {
         return valor + calculaHabitese(valor);
     }
 
-    public Double ajustaValorUsado(Double valor) {
+    @Override
+    public Double aplicaTaxasAdicionaisValorUsado(Double valor) {
         return valor + calculaTransferencia(valor);
-    }
-
-    public Double calculaEntradaMinima(Double valor) {
-        return valor * .2;
     }
 
     private Double calculaTransferencia(Double valor) {
@@ -76,21 +72,13 @@ public class CalculadoraImovel {
         return valor * .05;
     }
 
-    private Double determinaTaxaJuros(Double renda) {
+    public Double determinaTaxaJuros(Double renda) {
         if(renda <= 3500)
             return .03;
         else if(renda <= 5000)
             return .025;
         else
             return .02;
-    }
-
-    private boolean isValorParcelaPermitido(Double valorParcela, Double renda) {
-        return valorParcela <= (renda * .3);
-    }
-
-    public String getUltimoErro(){
-        return mensagemErro;
     }
 
 }
