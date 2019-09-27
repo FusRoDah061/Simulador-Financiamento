@@ -7,26 +7,7 @@
     android:padding="16dp"
     tools:context=".SimularImovelActivity">
 
-    <br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.BrandTextView
-        android:id="@+id/textView"
-        style="@style/AppBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvNomeUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Olá, Fulano"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+    <include layout="@layout/topbar_layout"/>
 
     <ScrollView
         android:layout_width="match_parent"

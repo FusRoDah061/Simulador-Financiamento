@@ -3,6 +3,8 @@ package br.com.ifsp.aluno.allex.simuladorfinanciamento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 

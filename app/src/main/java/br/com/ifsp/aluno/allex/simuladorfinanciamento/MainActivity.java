@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(MainActivity.this, SimularAutoActivity.class);
         }
         else if (rbtImovel.isChecked()){
-            intent = new Intent(MainActivity.this, SimularAutoActivity.class);
+            intent = new Intent(MainActivity.this, SimularImovelActivity.class);
         }
 
         if (intent != null) {
