@@ -38,6 +38,7 @@ public final class CalculadoraAutomovel extends CalculadoraFinanciamento {
 
         double taxaJuros = determinaTaxaJuros(financiamento.getRendaMensal());
 
+        financiamento.setTaxaJuros(taxaJuros);
         financiamento.setValorFinal(ajustaValorJuros(financiamento.getValorFinal(), taxaJuros, financiamento.getQtdParcelas()));
 
         double valorParcela = financiamento.getValorFinal() / financiamento.getQtdParcelas();

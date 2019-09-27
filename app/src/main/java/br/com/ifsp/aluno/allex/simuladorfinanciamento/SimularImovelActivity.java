@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.business.CalculadoraImovel;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.enums.TipoFinanciamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText;
 
@@ -68,6 +69,7 @@ public class SimularImovelActivity extends AppCompatActivity implements View.OnC
 
     private void calcularFinanciamento() {
         Financiamento financiamento = new Financiamento(
+                TipoFinanciamento.FINANCIAMENTO_IMOVEL,
                 letValorImovel.getValue(),
                 letValorEntrada.getValue(),
                 letQtdParcelas.getValue().intValue(),

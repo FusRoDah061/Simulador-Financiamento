@@ -4,6 +4,7 @@ public interface Constants {
 
     String EXTRA_FINANCIAMENTO = "financiamento";
 
+    String PARCELABLE_TIPO = "tipo";
     String PARCELABLE_VALOR = "valor";
     String PARCELABLE_VALOR_FINAL = "valorFinal";
     String PARCELABLE_ENTRADA = "entrada";

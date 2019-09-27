@@ -7,9 +7,11 @@ import android.os.Parcelable;
 import java.io.Serializable;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.Constants;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.enums.TipoFinanciamento;
 
 public class Financiamento implements Parcelable {
 
+    private TipoFinanciamento tipo;
     private Double valor;
     private Double valorFinal;
     private Double entrada;
@@ -21,7 +23,8 @@ public class Financiamento implements Parcelable {
 
     public Financiamento(){}
 
-    public Financiamento(Double valor, Double entrada, int qtdParcelas, double rendaMensal, boolean isNovo) {
+    public Financiamento(TipoFinanciamento tipo, Double valor, Double entrada, int qtdParcelas, double rendaMensal, boolean isNovo) {
+        this.tipo = tipo;
         this.valor = valor;
         this.valorFinal = valor;
         this.entrada = entrada;
@@ -36,6 +39,7 @@ public class Financiamento implements Parcelable {
         super();
         Bundle content = in.readBundle();
 
+        this.setTipo(TipoFinanciamento.valueOf(content.getString(Constants.PARCELABLE_TIPO)));
         this.setValor(content.getDouble(Constants.PARCELABLE_VALOR));
         this.setValorFinal(content.getDouble(Constants.PARCELABLE_VALOR_FINAL));
         this.setEntrada(content.getDouble(Constants.PARCELABLE_ENTRADA));
@@ -118,6 +122,14 @@ public class Financiamento implements Parcelable {
         isNovo = novo;
     }
 
+    public TipoFinanciamento getTipo() {
+        return tipo;
+    }
+
+    private void setTipo(TipoFinanciamento tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -127,6 +139,7 @@ public class Financiamento implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         Bundle content = new Bundle(8);
 
+        content.putString(Constants.PARCELABLE_TIPO, this.getTipo().toString());
         content.putDouble(Constants.PARCELABLE_VALOR, this.getValor());
         content.putDouble(Constants.PARCELABLE_VALOR_FINAL, this.getValorFinal());
         content.putDouble(Constants.PARCELABLE_ENTRADA, this.getEntrada());

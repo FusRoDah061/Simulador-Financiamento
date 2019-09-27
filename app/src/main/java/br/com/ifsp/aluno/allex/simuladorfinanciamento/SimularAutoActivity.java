@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.business.CalculadoraAutomovel;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.enums.TipoFinanciamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText;
 
@@ -69,6 +70,7 @@ public class SimularAutoActivity extends AppCompatActivity implements View.OnCli
 
     private void calcularFinanciamento() {
         Financiamento financiamento = new Financiamento(
+                TipoFinanciamento.FINANCIAMENTO_AUTOMOVEL,
                 letValorAutomovel.getValue(),
                 letValorEntrada.getValue(),
                 letQtdParcelas.getValue().intValue(),
