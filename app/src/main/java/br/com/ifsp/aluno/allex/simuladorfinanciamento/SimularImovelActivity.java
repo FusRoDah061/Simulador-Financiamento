@@ -1,6 +1,7 @@
 package br.com.ifsp.aluno.allex.simuladorfinanciamento;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,6 +39,8 @@ public class SimularImovelActivity extends MenuActivity implements View.OnClickL
     }
 
     private void initComponents() {
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
         tvNomeUsuario = (TextView) findViewById(R.id.tvNomeUsuario);
         tvHintEntradaMinima = (TextView) findViewById(R.id.tvHintEntradaMinima);
         rbtNovo = (RadioButton) findViewById(R.id.rbtNovo);

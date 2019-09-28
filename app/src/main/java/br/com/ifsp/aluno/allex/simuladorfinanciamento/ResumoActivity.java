@@ -1,6 +1,7 @@
 package br.com.ifsp.aluno.allex.simuladorfinanciamento;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -76,6 +77,8 @@ public class ResumoActivity extends MenuActivity implements View.OnClickListener
     }
 
     private void initComponents() {
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
         tvNomeUsuario = (TextView) findViewById(R.id.tvNomeUsuario);
         tvNomeUsuario.setText("Olá, " + globals.getNomeUsuario());
 

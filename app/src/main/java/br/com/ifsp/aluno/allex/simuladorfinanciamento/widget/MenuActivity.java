@@ -2,16 +2,19 @@ package br.com.ifsp.aluno.allex.simuladorfinanciamento.widget;
 
 import android.app.Application;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.Constants;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.MainActivity;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.R;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.SimularAutoActivity;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.SimularImovelActivity;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.SobreActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -23,42 +26,36 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = null;
 
         switch (item.getItemId()) {
             case R.id.action_inicio:
-                intent = new Intent(this, MainActivity.class);
-                break;
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+                return true;
 
             case R.id.action_sim_veiculo:
-                intent = new Intent(this, SimularAutoActivity.class);
-                break;
+                startActivity(new Intent(this, SimularAutoActivity.class));
+                finish();
+                return true;
 
             case R.id.action_sim_residencia:
-                intent = new Intent(this, SimularImovelActivity.class);
-                break;
+                startActivity(new Intent(this, SimularImovelActivity.class));
+                finish();
+                return true;
 
             case R.id.action_sobre:
-                // TODO
-                break;
+                startActivity(new Intent(this, SobreActivity.class));
+                return true;
 
             case R.id.action_sair:
-                intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.EXTRA_SAIR, true);
-                break;
+                startActivity(intent);
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-        if(intent != null) {
-            startActivity(intent);
-            finish();
-            return true;
-        }
-
-        return false;
     }
-
 }
