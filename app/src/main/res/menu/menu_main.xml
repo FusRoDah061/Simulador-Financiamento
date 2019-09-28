@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_main"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/ic_more_vert_white_24dp">
+
+        <menu>
+            <item
+                android:id="@+id/action_inicio"
+                android:title="Início"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/action_sim_veiculo"
+                android:title="Simular veículo"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/action_sim_residencia"
+                android:title="Simular residência"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/action_sobre"
+                android:title="Sobre"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/action_sair"
+                android:title="Sair"
+                app:showAsAction="never"/>
+        </menu>
+
+    </item>
+</menu>
+

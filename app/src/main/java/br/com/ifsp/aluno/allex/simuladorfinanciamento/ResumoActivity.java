@@ -13,8 +13,9 @@ import org.w3c.dom.Text;
 
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.presentation.ResumoActivityViewHelper;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.MenuActivity;
 
-public class ResumoActivity extends AppCompatActivity implements View.OnClickListener {
+public class ResumoActivity extends MenuActivity implements View.OnClickListener {
 
     private Globals globals = Globals.getInstance();
 

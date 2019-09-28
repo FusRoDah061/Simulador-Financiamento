@@ -3,6 +3,7 @@ package br.com.ifsp.aluno.allex.simuladorfinanciamento;
 public interface Constants {
 
     String EXTRA_FINANCIAMENTO = "financiamento";
+    String EXTRA_SAIR = "sair";
 
     String PARCELABLE_TIPO = "tipo";
     String PARCELABLE_VALOR = "valor";

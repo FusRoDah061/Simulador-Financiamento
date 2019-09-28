@@ -1,9 +1,12 @@
 package br.com.ifsp.aluno.allex.simuladorfinanciamento;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -14,8 +17,9 @@ import br.com.ifsp.aluno.allex.simuladorfinanciamento.business.CalculadoraAutomo
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.enums.TipoFinanciamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.MenuActivity;
 
-public class SimularAutoActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
+public class SimularAutoActivity extends MenuActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
     private Globals globals = Globals.getInstance();
     private CalculadoraAutomovel calculadoraAutomovel = new CalculadoraAutomovel();
@@ -33,10 +37,13 @@ public class SimularAutoActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simular_auto);
+
         initComponents();
     }
 
     private void initComponents() {
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
         tvNomeUsuario = (TextView) findViewById(R.id.tvNomeUsuario);
         tvHintEntradaMinima = (TextView) findViewById(R.id.tvHintEntradaMinima);
         rbtNovo = (RadioButton) findViewById(R.id.rbtNovo);

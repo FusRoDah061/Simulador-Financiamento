@@ -9,6 +9,17 @@
         <item name="buttonStyle">@style/ButtonStyle</item>
     </style>
 
+    <style name="PopupStyle" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorForeground</item>
+        <item name="android:textColor">@color/colorAccent3</item>
+        <item name="android:itemTextAppearance">@style/MenuItemTextStyle</item>
+        <item name="android:colorControlHighlight">@color/colorAccent2</item>
+    </style>
+
+    <style name="MenuItemTextStyle">
+        <item name="android:textColor">@color/colorAccent3</item>
+    </style>
+
     <style name="TextViewStyle" parent="android:Widget.TextView">
         <item name="colorAccent">@color/colorAccent1</item>
         <item name="android:colorAccent">@color/colorAccent1</item>

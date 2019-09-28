@@ -14,8 +14,9 @@ import br.com.ifsp.aluno.allex.simuladorfinanciamento.business.CalculadoraImovel
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.enums.TipoFinanciamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.model.Financiamento;
 import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.LabeledEditText;
+import br.com.ifsp.aluno.allex.simuladorfinanciamento.widget.MenuActivity;
 
-public class SimularImovelActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener  {
+public class SimularImovelActivity extends MenuActivity implements View.OnClickListener, View.OnFocusChangeListener  {
 
     private Globals globals = Globals.getInstance();
     private CalculadoraImovel calculadoraImovel = new CalculadoraImovel();
@@ -35,6 +36,7 @@ public class SimularImovelActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_simular_imovel);
         initComponents();
     }
+
     private void initComponents() {
         tvNomeUsuario = (TextView) findViewById(R.id.tvNomeUsuario);
         tvHintEntradaMinima = (TextView) findViewById(R.id.tvHintEntradaMinima);

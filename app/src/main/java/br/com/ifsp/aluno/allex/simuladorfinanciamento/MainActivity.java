@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (getIntent().getBooleanExtra(Constants.EXTRA_SAIR, false)) {
+            finish();
+        }
+
         btnSimular = (Button) findViewById(R.id.btnSimular);
         rbtAutomovel = (RadioButton) findViewById(R.id.rbtAutomovel);
         rbtImovel = (RadioButton) findViewById(R.id.rbtImovel);

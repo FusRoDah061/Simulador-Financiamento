@@ -2,7 +2,6 @@ package br.com.ifsp.aluno.allex.simuladorfinanciamento.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.LinearLayout;
